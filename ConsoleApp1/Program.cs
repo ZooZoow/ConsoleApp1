@@ -1,33 +1,29 @@
 ﻿using System;
 
-class Program
+class ArrayExample
 {
     static void Main()
     {
-        int result = Fibonacci(5);
-        Console.WriteLine(result);
-    }
+        char[] letters = { 'f', 'r', 'e', 'd', ' ', 's', 'm', 'i', 't', 'h' };
 
-    static int Fibonacci(int n)
-    {
-        
-        if (n < 0)
-            throw new ArgumentException("n должно быть неотрицательным");
-
-        if (n == 0) return 0;
-        if (n == 1) return 1;
-
-        int n1 = 0;  
-        int n2 = 1;  
-        int sum;
-
-        for (int i = 2; i <= n; i++)  
+        if (letters.Length == 0)
         {
-            sum = n1 + n2;
-            n1 = n2;
-            n2 = sum;
+            Console.WriteLine("Массив букв пуст.");
+            return;
         }
 
-        return n2;
+        string name = new string(letters);
+
+        for (int i = 1; i <= letters.Length; i++)
+        {
+            SendMessage(name, i);
+        }
+
+        Console.ReadKey();
+    }
+
+    static void SendMessage(string name, int count)
+    {
+        Console.WriteLine($"Hello, {name}! Count to {count}");
     }
 }
